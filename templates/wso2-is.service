@@ -2,12 +2,12 @@
 Description=WSO2 IS Service
 
 [Service]
-Type=forking
+Type=simple
 User={{ wso2_is_user }}
 Group={{ wso2_is_user }}
 Environment="CARBON_HOME=/opt/wso2is"
 Environment="JAVA_HOME=/usr/java/latest"
-ExecStart=/opt/wso2is/bin/wso2server.sh start
+ExecStart=/opt/wso2is/bin/wso2server.sh -Dsetup
 StandardOutput=journal
 StandardError=journal
 Restart=always
