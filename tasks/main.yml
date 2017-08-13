@@ -34,6 +34,9 @@
 - name: put embedded-ldap.xml
   template: src=embedded-ldap.xml dest=/opt/wso2is-{{ subrole }}/repository/conf/identity/embedded-ldap.xml backup=yes
 
+- name: install PostgreSQL client
+  yum: name=postgresql
+
 - name: put systemd unit file to its destination
   template: src=wso2-is.service dest=/etc/systemd/system/wso2-is-{{ subrole }}.service owner=root group=root mode=0644
   notify: systemctl daemon-reload
